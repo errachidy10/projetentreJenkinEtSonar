@@ -12,12 +12,47 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <sonar.projectKey>simplePourTesteJenkinsEtSonarQube</sonar.projectKey>  <!-- MANDATORY -->
-        <sonar.projectName>Simple Pour Teste Jenkins Et SonarQube</sonar.projectName> <!--OPTIONAL, DEFAULT TO ARTIFACT ID-->
+        <sonar.projectKey>projetentreJenkinEtSonar</sonar.projectKey>  <!-- MANDATORY - UPDATED PROJECT KEY -->
+        <sonar.projectName>Projet Entre Jenkins Et Sonar</sonar.projectName> <!-- OPTIONAL -->
         <sonar.sources>src</sonar.sources>                         <!-- where your sources are -->
-        <sonar.java.binaries>target/classes</sonar.java.binaries>     <!-- Where you classes are generated-->
+        <sonar.java.binaries>target/classes</sonar.java.binaries>     <!-- Where your classes are generated-->
         <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>    <!-- if it's not already specified-->
-        <!-- Add other SonarQube properties as needed -->
     </properties>
+
+    <dependencies>
+        <!-- Add your project dependencies here (e.g., JUnit) -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.11.0-M1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.11.0-M1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Add the maven-surefire-plugin to run tests and generate reports -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <useFile>false</useFile>
+                </configuration>
+            </plugin>
+            <!-- Add SonarQube plugin -->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.9.1.2184</version>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
