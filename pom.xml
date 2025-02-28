@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>projetentreJenkinEtSonar</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <sonar.projectKey>simplePourTesteJenkinsEtSonarQube</sonar.projectKey>  <!-- MANDATORY -->
+        <sonar.projectName>Simple Pour Teste Jenkins Et SonarQube</sonar.projectName> <!--OPTIONAL, DEFAULT TO ARTIFACT ID-->
+        <sonar.sources>src</sonar.sources>                         <!-- where your sources are -->
+        <sonar.java.binaries>target/classes</sonar.java.binaries>     <!-- Where you classes are generated-->
+        <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>    <!-- if it's not already specified-->
+        <!-- Add other SonarQube properties as needed -->
+    </properties>
+
+</project>
