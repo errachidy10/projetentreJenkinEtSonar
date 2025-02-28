@@ -30,7 +30,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             environment {
-                SONAR_AUTH_TOKEN = credentials('sonarJenkinsToken1') // The ID of your SonarQube token credential in Jenkins
+                SONAR_AUTH_TOKEN = credentials('sonarJenkinsToken') // The ID of your SonarQube token credential in Jenkins
             }
             steps {
                 bat 'mvn sonar:sonar -Dsonar.projectKey=simplePourTesteJenkinsEtSonarQube -Dsonar.host.url=$SONARQUBE_SERVER -Dsonar.login=$SONAR_AUTH_TOKEN'
