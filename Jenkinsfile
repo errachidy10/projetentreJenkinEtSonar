@@ -29,11 +29,13 @@ pipeline {
         }
 
         stage('SonarQube Analysis') {
-            def mvn = tool 'mvn';
-            withSonarQubeEnv() {
-              bat "\"${mvn}\\bin\\mvn\" clean verify sonar:sonar -Dsonar.projectKey=test -Dsonar.projectName='test'"
+            environment {
+                SONAR_AUTH_TOKEN = credentials('sonarJenkinsToken') // The ID of your SonarQube token credential in Jenkins
             }
+            steps {
+                bat "\"${mvn}\\bin\\mvn\" clean verify sonar:sonar -Dsonar.projectKey=test -Dsonar.projectName='test'"            }
         }
+    }
 
     post {
         always {
@@ -46,3 +48,4 @@ pipeline {
             echo 'Pipeline failed!'
         }
     }
+}
