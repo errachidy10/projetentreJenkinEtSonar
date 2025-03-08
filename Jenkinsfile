@@ -33,7 +33,7 @@ pipeline {
                 SONAR_AUTH_TOKEN = credentials('sonarJenkinsToken') // The ID of your SonarQube token credential in Jenkins
             }
             steps {
-                bat 'mvn sonar:sonar -Dsonar.projectKey=projetentreJenkinEtSonar -Dsonar.host.url=$SONARQUBE_SERVER -Dsonar.login=$SONAR_AUTH_TOKEN'
+                 bat "\"${mvn}\\bin\\mvn\" clean verify sonar:sonar -Dsonar.projectKey=test -Dsonar.projectName='test'"
             }
         }
     }
